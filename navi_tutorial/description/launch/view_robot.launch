@@ -1,0 +1,6 @@
+<launch>
+
+    <!-- RViz config files are generally saved in the /rviz folder -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find description)/rviz/robot.rviz"/>
+
+</launch>

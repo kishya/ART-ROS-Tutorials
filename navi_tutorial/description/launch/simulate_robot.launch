@@ -14,8 +14,4 @@
         <arg name="robot_ns" value="navi"/>
     </include>
 
-    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-        <param name="default_topic" value="/cmd_vel"/> 
-    </node>
-
 </launch>
