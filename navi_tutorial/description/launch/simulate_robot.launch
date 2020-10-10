@@ -1,11 +1,11 @@
 <launch>
 
-    <arg name="use_gui" default="false"/>
-    <arg name="world" default="$(find worlds)/willowgarage.world"/>
+    <arg name="use_gui" default="true"/>
+    <!-- <arg name="world" default="$(find worlds)/empty.world"/> -->
 
     <!-- Open a world in Gazebo -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(arg world)"/>
+        <!-- <arg name="world_name" value="$(arg world)"/> -->
         <arg name="gui" value="$(arg use_gui)"/>
     </include>
 
@@ -13,5 +13,9 @@
     <include file="$(find description)/launch/spawn_robot.launch">
         <arg name="robot_ns" value="navi"/>
     </include>
+
+    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+        <param name="default_topic" value="/cmd_vel"/> 
+    </node>
 
 </launch>
