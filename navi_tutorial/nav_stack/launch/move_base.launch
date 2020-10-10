@@ -1,0 +1,19 @@
+<launch>
+
+    <arg name="robot_ns" default="navi"/>
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" ns="$(arg robot_ns)">
+        <rosparam file="$(find nav_stack)/config/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+        <rosparam file="$(find nav_stack)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        
+        <rosparam file="$(find nav_stack)/config/local_costmap_params.yaml" command="load" />
+        
+        <rosparam file="$(find nav_stack)/config/global_costmap_params.yaml" command="load" /> 
+        
+        <rosparam file="$(find nav_stack)/config/base_local_planner_params.yaml" command="load" />
+    </node>
+
+    <!-- move base is a node hence node tag, it comes from pkg move_base, name of type and node is move_base, ns is attribute (short of namespace)-->
+    <!-- rosparam lets us call yaml files, the $(find ~) finds the nav_stack and go in to config and find yaml file-->
+    <!-- this will not work cuz not complete -->
+</launch> 
