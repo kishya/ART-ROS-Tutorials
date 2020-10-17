@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<robot name="file_name" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Includes -->
+  <xacro:include filename="$(find description)/urdf/constants.xacro"/>
+  <xacro:include filename="$(find description)/urdf/inertias.xacro"/>
+
+  <link name="base_link"/>
+
+  <!-- Your URDF code here -->
+  <!-- Body link -->
+  <link name="body_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://description/urdf/meshes/cybertruck_body.dae"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://description/urdf/meshes/cybertruck_body.dae"/>
+      </geometry>
+    <!-- Motor Transmissions -->	
+    <xacro:macro name="Transmission" params="joint">
+        <transmission name="${joint}_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            
+            <joint name="${joint}">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>	
+            </joint>
+
+            <actuator name="${joint}_motor"/>
+        </transmission>	
+    </xacro:macro>
+
+    </collision>
+
+    <inertial>
+      <xacro:body_inertial m="${body_mass}" l="${body_length}" w="${body_width}" h="${body_height}"/>
+    </inertial>
+  </link>
+
+  <joint name="body_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="body_link"/>
+    <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
+  </joint>
+
+  <!-- Wheels -->
+  <xacro:include filename="$(find description)/urdf/wheels.urdf.xacro"/>
+</robot>
