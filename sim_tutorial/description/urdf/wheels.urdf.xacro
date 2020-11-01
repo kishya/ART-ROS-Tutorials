@@ -17,8 +17,8 @@
             <actuator name="${joint}_motor"/>
         </transmission>	
     </xacro:macro>
-    <!-- Wheel macro -->
 
+    <!-- Wheel macro -->
     <xacro:macro name="Wheel" params="fb lr">
         <!-- Wheel link -->
         <link name="${fb}_${lr}_wheel_link">
