@@ -5,7 +5,20 @@
     <xacro:include filename="$(find description)/urdf/constants.xacro"/>
     <xacro:include filename="$(find description)/urdf/inertias.xacro"/>
 
+    <!-- Motor Transmissions -->	
+    <xacro:macro name="Transmission" params="joint">
+        <transmission name="${joint}_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            
+            <joint name="${joint}">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>	
+            </joint>
+
+            <actuator name="${joint}_motor"/>
+        </transmission>	
+    </xacro:macro>
     <!-- Wheel macro -->
+
     <xacro:macro name="Wheel" params="fb lr">
         <!-- Wheel link -->
         <link name="${fb}_${lr}_wheel_link">
@@ -36,7 +49,6 @@
             <axis xyz="1 0 0"/>
         </joint>
 
-        <!-- Other attributes-->
         <xacro:if value="${fb == 'front'}">
             <!-- Add Transmission to Wheels connected to the motor -->
             <xacro:Transmission joint="${fb}_${lr}_wheel_joint"/>

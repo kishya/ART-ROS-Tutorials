@@ -6,9 +6,6 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /RobotModel1
-        - /TF1
-        - /LaserScan1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz/Selection
@@ -29,7 +26,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: LaserScan
+    SyncSource: ""
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -94,93 +91,17 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        scan_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
       Name: RobotModel
-      Robot Description: sim/robot_description
-      TF Prefix: sim
+      Robot Description: robot_description
+      TF Prefix: ""
       Update Interval: 0
       Value: true
       Visual Enabled: true
-    - Class: rviz/TF
-      Enabled: true
-      Frame Timeout: 15
-      Frames:
-        All Enabled: false
-        sim/back_left_wheel_link:
-          Value: true
-        sim/back_right_wheel_link:
-          Value: true
-        sim/base_link:
-          Value: true
-        sim/body_link:
-          Value: true
-        sim/front_left_wheel_link:
-          Value: true
-        sim/front_right_wheel_link:
-          Value: true
-        sim/odom:
-          Value: true
-        sim/scan_link:
-          Value: true
-      Marker Scale: 0.20000000298023224
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: true
-      Tree:
-        sim/odom:
-          sim/base_link:
-            sim/body_link:
-              sim/back_left_wheel_link:
-                {}
-              sim/back_right_wheel_link:
-                {}
-              sim/front_left_wheel_link:
-                {}
-              sim/front_right_wheel_link:
-                {}
-              sim/scan_link:
-                {}
-      Update Interval: 0
-      Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/LaserScan
-      Color: 255; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: -999999
-      Min Color: 0; 0; 0
-      Min Intensity: 999999
-      Name: LaserScan
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.009999999776482582
-      Style: Flat Squares
-      Topic: /sim/scan
-      Unreliable: false
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: sim/odom
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -204,25 +125,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.6751967668533325
+      Distance: 0.4514063894748688
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.005658023525029421
-        Y: 0.003556132549419999
-        Z: 0.0008273397106677294
+        X: 0
+        Y: 0
+        Z: 0
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4797973930835724
+      Pitch: 0.785398006439209
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.2153983116149902
+      Yaw: 0.785398006439209
     Saved: ~
 Window Geometry:
   Displays:
@@ -240,5 +161,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1200
-  X: 108
-  Y: 35
+  X: 67
+  Y: 30
